@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Cities } from '../cities.model';
-import { HttpClient } from '@angular/common/http';
 import { CitiesServicesService } from '../cities-services.service';
-import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-cities',
@@ -10,13 +9,25 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./cities.component.css']
 })
 export class CitiesComponent implements OnInit {
-  city :Cities[]=[] ;
-  constructor(private service: CitiesServicesService,private http: HttpClient) {  }
+
+  City: Cities[] = [];
+
+  constructor(private service: CitiesServicesService) {  }
   ngOnInit() {
    //return this.http.get("http://localhost:3000/api/city")
     //.subscribe(response => {
    //console.log(response);
-  console.log(this.service.getCities())
+   // https://jsonplaceholder.typicode.com/posts (if we getting data from this site then it doesn't gives error)
     //})
+    this.loadCities()
     }
+
+
+// Get Cities list
+loadCities() {
+  return this.service.getCities().subscribe((data: any) => {
+    this.City = data;
+  })
+}
+
 }

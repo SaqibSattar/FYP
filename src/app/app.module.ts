@@ -9,8 +9,6 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ServicesComponent } from './services/services.component';
 import { CitiesComponent } from './cities/cities.component';
-import { CitiesServicesService } from "./cities-services.service";
-
 
 @NgModule({
   declarations: [
