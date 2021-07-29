@@ -31,3 +31,8 @@ h1 span {
 {
   height: fit-content;
 }
+button
+ {
+   border: none;
+   background: lightgray;
+ }

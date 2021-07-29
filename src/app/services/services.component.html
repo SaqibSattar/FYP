@@ -34,17 +34,17 @@
     </div>
     <div class="col col-lg-4">
 
-      <a href="#"><img src="../../assets/images/plumber.jpeg" class="img-fluid">
-        <p><b>Plumber</b></p>
-      </a>
+      <button value="plumber" (click)="clicked('plumber')"><img src="../../assets/images/plumber.jpeg" class="img-fluid">
+        <p><b>Plumber {{getval}}</b></p>
+      </button>
     </div>
   </div>
   <br>
   <div class="row text-center">
     <div class="col col-lg-4">
-      <a href="#"><img src="../../assets/images/painter.jpeg" class="img-fluid">
-        <p><b>Painter</b></p>
-      </a>
+      <button value="painter" (click)="clicked('painter')"><img src="../../assets/images/painter.jpeg" class="img-fluid">
+        <p><b>painter {{getval}}</b></p>
+      </button>
     </div>
     <div class="col col-lg-4">
       <a href="#"><img src="../../assets/images/electrician.jpeg" class="img-fluid">
