@@ -22,7 +22,7 @@ httpOptions = {
   })
 }
 
-// HttpClient API get() method => Fetch employees list
+// HttpClient API get() method => Fetch Cities list
 getCities(): Observable<Cities> {
   return this.http.get<Cities>(this.apiURL + '/api/city')
   .pipe(

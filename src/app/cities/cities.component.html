@@ -1,16 +1,44 @@
-<!--
-<ul>
-  <li>
-     {{ city }}
-  </li>
- </ul>
--->
-<p>
-  Here I want to display city list
-</p>
-<ul>
-  <li *ngFor="let cities of City">
-     {{ cities }}
-  </li>
- </ul>
+<div class="container">
+  <h1><span>Choose City</span></h1>
+  <li  *ngFor="let cities of City">
+      <button class="button" (click)="addToList(cities)">{{ cities.city }}</button>
+ </li>
+ <h1><span>Why Us</span></h1>
+ <div class="row text-center">
+   <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 ">
+     <img src="../../assets/images/agent.png" class="img-fluid">
+     <p><b>Trusted and verified Agents</b></p>
+   </div>
+   <div class="col col-lg-4 ">
+     <img src="../../assets/images/userFriendly.png" class="img-fluid">
+     <p><b>User friendly and effective</b></p>
+   </div>
+   <div class="col col-lg-4">
 
+     <img src="../../assets/images/destination.png" class="img-fluid">
+     <p><b>One step destination</b></p>
+   </div>
+ </div>
+ <br>
+ <div class="row text-center">
+   <div class="col col-lg-4">
+     <img src="../../assets/images/feedback.png" class="img-fluid">
+     <p><b>Customer Feedback</b></p>
+
+   </div>
+   <div class="col col-lg-4">
+     <img src="../../assets/images/professionalServices.png" class="img-fluid">
+     <p><b>Professional Services</b></p>
+
+   </div>
+
+   <div class="col col-lg-4">
+     <img src="../../assets/images/services.png" class="img-fluid">
+     <p><b>12/7 Services</b></p>
+   </div>
+ </div>
+
+
+
+
+</div>

@@ -5,8 +5,8 @@ import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
 {path : '' , redirectTo : '/home' , pathMatch : 'full'},
-{path: 'home' , component : ServicesComponent},
-{path: 'city', component: CitiesComponent},
+{path: 'service' , component : ServicesComponent},
+{path: 'home', component: CitiesComponent},
 {path: '**' , component : ServicesComponent},];
 
 @NgModule({

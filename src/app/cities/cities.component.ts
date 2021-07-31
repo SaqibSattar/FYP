@@ -11,6 +11,7 @@ import { CitiesServicesService } from '../cities-services.service';
 export class CitiesComponent implements OnInit {
 
   City: Cities[] = [];
+  storeCity = '' ;
 
   constructor(private service: CitiesServicesService) {  }
   ngOnInit() {
@@ -26,8 +27,12 @@ export class CitiesComponent implements OnInit {
 // Get Cities list
 loadCities() {
   return this.service.getCities().subscribe((data: any) => {
-    this.City = data;
+    this.City = data.cities
   })
+}
+addToList(data: any) {
+this.storeCity = data.city
+console.log(this.storeCity)
 }
 
 }
