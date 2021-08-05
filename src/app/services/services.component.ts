@@ -6,13 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./services.component.css']
 })
 export class ServicesComponent implements OnInit {
-getval = ''
-  clicked(val: string) {
-this.getval = val;
-  }
-  constructor() { }
+service = '';
+
+constructor() { }
 
   ngOnInit(): void {
   }
+
+selectService(data: string) {
+this.service = data;
+console.log(this.service);
+}
 
 }

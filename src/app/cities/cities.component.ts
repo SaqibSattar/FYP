@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Cities } from '../cities.model';
 import { CitiesServicesService } from '../cities-services.service';
 
+import { ActivatedRoute, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-cities',
@@ -13,7 +15,7 @@ export class CitiesComponent implements OnInit {
   City: Cities[] = [];
   storeCity = '' ;
 
-  constructor(private service: CitiesServicesService) {  }
+  constructor(private route: ActivatedRoute,private service: CitiesServicesService, private router: Router) {  }
   ngOnInit() {
    //return this.http.get("http://localhost:3000/api/city")
     //.subscribe(response => {
@@ -33,6 +35,9 @@ loadCities() {
 addToList(data: any) {
 this.storeCity = data.city
 console.log(this.storeCity)
+//console.log(data._id)
+//this.router.navigate(['service'])
+this.router.navigate(['service'],{relativeTo:this.route});
 }
 
 }

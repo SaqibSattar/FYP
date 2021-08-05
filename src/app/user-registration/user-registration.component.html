@@ -1,0 +1,97 @@
+<div class="container text-center">
+  <h2>Enter Your Details</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
+    <div class="row">
+      <div class="col col-lg-6">
+        <input type="text" class="form-control inputStyle" placeholder="First Name" formControlName="firstName"
+          [ngClass]="{ 'is-invalid': f.firstName.touched && f.firstName.errors }">
+        <div *ngIf="f.firstName.touched && f.firstName.errors?.required" class="invalid-feedback text-center">
+          First Name is required
+        </div>
+        <div *ngIf="f.firstName.errors?.minlength" class="invalid-feedback">First Name must be at least 4 characters
+          long.</div>
+
+      </div>
+      <div class="col col-lg-6">
+        <input type="text" class="form-control inputStyle" placeholder="Last Name" formControlName="lastName"
+          [ngClass]="{ 'is-invalid': f.lastName.touched && f.lastName.errors }">
+        <div *ngIf="f.lastName.touched && f.lastName.errors?.required" class="invalid-feedback">
+          Last Name is required
+        </div>
+        <div *ngIf="f.lastName.errors?.minlength" class="invalid-feedback">Last Name must be at least 4 characters long.
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <div class="row">
+
+      <div class="col col-lg-6">
+        <div class="form-group">
+          <input type="email" class="form-control inputStyle" formControlName="email" placeholder="Email"
+            [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }">
+          <div *ngIf="f.email.touched && f.email.errors?.required" class="invalid-feedback">Email is required</div>
+          <div *ngIf="f.email.touched && f.email.errors?.email" class="invalid-feedback">Email must be a valid email address</div>
+        </div> 
+      </div>
+      <div class="col col-lg-6">
+        <input type="text" class="form-control inputStyle" placeholder="Cell Phone" formControlName="phone"
+          [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }">
+        <div *ngIf="f.phone.touched && f.phone.errors?.required" class="invalid-feedback text-center">
+          Cell Phone is required
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col col-lg-6">
+        <div class="form-group">
+          <input type="text" class="form-control inputStyle" placeholder="City" formControlName="city"
+            [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors }">
+          <div *ngIf="f.city.touched && f.city.errors?.required" class="invalid-feedback text-center">
+            City is required
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-6">
+        <input type="text" class="form-control inputStyle" placeholder="Address" formControlName="address"
+          [ngClass]="{ 'is-invalid': f.address.touched && f.address.errors }">
+        <div *ngIf="f.address.touched && f.address.errors?.required" class="invalid-feedback text-center">
+          Address is required
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-6">
+        <div class="form-group">
+          <input type="password" class="form-control inputStyle" placeholder="Password" formControlName="password"
+            [ngClass]="{ 'is-invalid': f.password.touched && f.password.errors }">
+          <div *ngIf="f.password.touched && f.password.errors?.required" class="invalid-feedback text-center">
+            Password is required
+          </div>
+          <div *ngIf="f.password.errors?.minlength" class="invalid-feedback">
+            Password must be at least 6 characters long.</div>
+        </div>
+      </div>
+      <div class="col col-lg-6">
+        <div class="form-group">
+          <input type="password" class="form-control inputStyle" placeholder="Confirm Password"
+            formControlName="confirmPassword"
+            [ngClass]="{ 'is-invalid': f.confirmPassword.touched && f.confirmPassword.errors }">
+          <div *ngIf="f.confirmPassword.errors?.required" class="invalid-feedback">Confirm Password is required</div>
+          <div *ngIf="f.confirmPassword.errors?.mustMatch" class="invalid-feedback">Confirm Password must match to
+            Password</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-lg-2 text-center"></div>
+      <div class="col col-lg-6 text-center">
+        <input type="button" value="Submit" type="submit" class="inputStyle" [disabled]="!userForm.valid">
+      </div>
+      <div class="col col-lg-4 text-center"></div>
+    </div>

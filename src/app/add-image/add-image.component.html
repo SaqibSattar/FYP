@@ -1,0 +1,62 @@
+<div class="container"><h2 class="mb-5 text-center">Angular 12 Form Validation Example</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
+
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control inputStyle" formControlName="name" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }">
+    <div *ngIf="f.name.touched && f.name.errors?.required" class="invalid-feedback">
+      Name is required
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }">
+    <div *ngIf="f.email.errors?.required" class="invalid-feedback">Email is required</div>
+      <div *ngIf="f.email.errors?.email" class="invalid-feedback">Email must be a valid email address</div>
+
+  </div>
+
+  <div class="form-group">
+    <label>Phone</label>
+    <input type="text" class="form-control" formControlName="phone" [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }">
+    <div *ngIf="f.phone.touched && f.phone.errors?.required" class="invalid-feedback">
+      Phone is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>City</label>
+    <input type="text" class="form-control" formControlName="city"  [ngClass]="{ 'is-invalid': f.city.touched && f.city.errors }">
+    <div *ngIf="f.city.touched && f.city.errors?.required" class="invalid-feedback">
+      City is required.
+    </div>
+  </div>
+  <div class="form-group">
+    <label>Service</label>
+    <input type="text" class="form-control" formControlName="service"  [ngClass]="{ 'is-invalid': f.service.touched && f.service.errors }">
+    <div *ngIf="f.service.touched && f.service.errors?.required" class="invalid-feedback">
+    Service is required.
+    </div>
+  </div>
+  <div class="form-group">
+  <label>File</label>
+  <input formControlName="image" type="file" class="form-control" (change)="onFileChange($event)"
+   [ngClass]="{ 'is-invalid': f.image.touched && f.image.errors }">
+  <div *ngIf="f.image.touched && f.image.errors?.required" class="invalid-feedback">
+     Image is required.
+  </div>
+</div>
+
+<img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+  <div class="form-group">
+    <label>Experience</label>
+    <input type="text" class="form-control" formControlName="experience"
+    [ngClass]="{ 'is-invalid': f.experience.touched && f.experience.errors }">
+    <div *ngIf="f.experience.touched && f.experience.errors?.required" class="invalid-feedback">
+    Experience is required.
+    </div>
+  </div>
+  <button class="btn btn-danger btn-block" type="submit" [disabled]="!userForm.valid">Submit</button>
+</div></form>
+</div>

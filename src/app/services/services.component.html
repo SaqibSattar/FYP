@@ -1,62 +1,75 @@
+
 <div class="container">
-  <div id="carouselExampleInterval" class="carousel slide mt-1" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="100">
-        <img src="../../assets/images/carousel.jpeg" class="d-block w-100 carousel" alt="image1">
-      </div>
-      <div class="carousel-item" data-bs-interval="200">
-        <img src="../../assets/images/carousel.jpeg" class="d-block w-100 carousel" alt="image2">
-      </div>
-      <div class="carousel-item">
-        <img src="../../assets/images/carousel.jpeg" class="d-block w-100 carousel" alt="image3">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
   <h1><span>Services</span></h1>
   <div class="row text-center">
     <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
-      <a href="#"><img src="../../assets/images/mason.jpeg" class="img-fluid">
+      <button value="masson" (click)="selectService('masson')"><img src="../../assets/images/mason.jpeg" class="img-fluid">
         <p><b>Masson</b></p>
-      </a>
+      </button>
     </div>
     <div class="col col-lg-4 ">
-      <a href="#"><img src="../../assets/images/construction.jpeg" class="img-fluid">
+      <button value="construction" (click)="selectService('construction')"><img src="../../assets/images/construction.jpeg" class="img-fluid">
         <p><b>Construction</b></p>
-      </a>
+      </button>
     </div>
     <div class="col col-lg-4">
 
-      <button value="plumber" (click)="clicked('plumber')"><img src="../../assets/images/plumber.jpeg" class="img-fluid">
-        <p><b>Plumber {{getval}}</b></p>
+      <button value="plumber" (click)="selectService('plumber')"><img src="../../assets/images/plumber.jpeg" class="img-fluid">
+        <p><b>Plumber</b></p>
       </button>
+    </div>
+  </div>
+  <br>  <div class="row text-center">
+    <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4">
+      <button value="capernter" (click)="selectService('capernter')"><img src="../../assets/images/carpenter.jpeg" class="img-fluid">
+        <p><b>Capernter</b></p>
+      </button>
+    </div>
+    <div class="col col-lg-4 ">
+      <button value="electrician" (click)="selectService('electrician')"><img src="../../assets/images/electrician.jpeg" class="img-fluid">
+        <p><b>Electrician</b></p>
+      </button>
+    </div>
+    <div class="col col-lg-4">
+
+      <button value="painter" (click)="selectService('painter')"><img src="../../assets/images/painter.jpeg" class="img-fluid">
+        <p><b>Painter</b></p>
+      </button>
+    </div>
+  </div>
+  <br>
+  <h1><span>Why Us</span></h1>
+  <div class="row text-center">
+    <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 ">
+      <img src="../../assets/images/agent.png" class="img-fluid">
+      <p><b>Trusted and verified Agents</b></p>
+    </div>
+    <div class="col col-lg-4 ">
+      <img src="../../assets/images/userFriendly.png" class="img-fluid">
+      <p><b>User friendly and effective</b></p>
+    </div>
+    <div class="col col-lg-4">
+
+      <img src="../../assets/images/destination.png" class="img-fluid">
+      <p><b>One step destination</b></p>
     </div>
   </div>
   <br>
   <div class="row text-center">
     <div class="col col-lg-4">
-      <button value="painter" (click)="clicked('painter')"><img src="../../assets/images/painter.jpeg" class="img-fluid">
-        <p><b>painter {{getval}}</b></p>
-      </button>
+      <img src="../../assets/images/feedback.png" class="img-fluid">
+      <p><b>Customer Feedback</b></p>
+
     </div>
     <div class="col col-lg-4">
-      <a href="#"><img src="../../assets/images/electrician.jpeg" class="img-fluid">
-        <p><b>Electrician</b></p>
-      </a>
+      <img src="../../assets/images/professionalServices.png" class="img-fluid">
+      <p><b>Professional Services</b></p>
+
     </div>
 
     <div class="col col-lg-4">
-      <a href="#"><img src="../../assets/images/carpenter.jpeg" class="img-fluid">
-        <p><b>Carpenter</b></p>
-      </a>
+      <img src="../../assets/images/services.png" class="img-fluid">
+      <p><b>12/7 Services</b></p>
     </div>
   </div>
-</div>
 

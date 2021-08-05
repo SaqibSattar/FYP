@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="mt-5 text-center">Schedule your Appointment</h2>
+  <div class="row">
+    <div class="col col-lg-2"></div>
+    <div class="col col-lg-8  marginTop">
+      <form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
+
+        <div class="form-group">
+          <label for="birthdaytime"><h5>Select your date and time:</h5></label>
+          <input type="datetime-local" class="form-control" formControlName="date"
+          [ngClass]="{ 'is-invalid': f.date.touched && f.date.errors }">
+          <div *ngIf="f.date.touched && f.date.errors?.required" class="invalid-feedback">
+            Please select your date and time
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col col-lg-4 text-center"></div>
+    <div class="col col-lg-4 text-center">
+      <input type="button" value="Next" type="submit"
+      class="inputStyle" [disabled]="!userForm.valid">
+    </div>
+    <div class="col col-lg-4 text-center"></div>
+  </div>
+</div>

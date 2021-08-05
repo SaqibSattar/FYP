@@ -29,3 +29,8 @@ img {
   height: 70px;
   width: 70px;
 }
+
+.carousel
+{
+  height: fit-content;
+}

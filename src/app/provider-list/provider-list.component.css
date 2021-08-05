@@ -1,0 +1,23 @@
+img
+ {
+   width: 120px;
+   height: 120px;
+   margin-top: 5px;
+ }
+
+.card {
+  margin: 5px;
+    display: inline;
+    text-align:center
+   }
+   .btn {
+     background: #FFD300;
+     border: 2px solid black;
+     color: black;
+   }
+.divStyle {
+  width: 32%;
+  background-color: #FFD300;
+  margin: 10px 0 10px 10px;
+
+}
