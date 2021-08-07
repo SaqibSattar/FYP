@@ -1,5 +1,6 @@
 <div class="container text-center">
-  <h2>Enter Your Details</h2>
+
+  <h3><span>Enter Your Details</span></h3>
 
   <form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
     <div class="row">
@@ -35,7 +36,7 @@
             [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }">
           <div *ngIf="f.email.touched && f.email.errors?.required" class="invalid-feedback">Email is required</div>
           <div *ngIf="f.email.touched && f.email.errors?.email" class="invalid-feedback">Email must be a valid email address</div>
-        </div> 
+        </div>
       </div>
       <div class="col col-lg-6">
         <input type="text" class="form-control inputStyle" placeholder="Cell Phone" formControlName="phone"
@@ -89,8 +90,8 @@
     </div>
 
     <div class="row">
-      <div class="col col-lg-2 text-center"></div>
-      <div class="col col-lg-6 text-center">
+      <div class="col col-lg-3 text-center"></div>
+      <div class="col col-lg-5 text-center">
         <input type="button" value="Submit" type="submit" class="inputStyle" [disabled]="!userForm.valid">
       </div>
       <div class="col col-lg-4 text-center"></div>

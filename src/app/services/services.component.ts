@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-services',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ServicesComponent implements OnInit {
 service = '';
 
-constructor() { }
+constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -16,6 +17,7 @@ constructor() { }
 selectService(data: string) {
 this.service = data;
 console.log(this.service);
+this.router.navigate(['home/service/provider-list'])
 }
 
 }

@@ -7,3 +7,12 @@ li
 {
   border: 1px solid white;
 }
+
+.buttonStyle
+{
+  border: none;
+  background-color: #F8F9FA;
+}
+.btn {
+  margin: 10px 7px;
+}

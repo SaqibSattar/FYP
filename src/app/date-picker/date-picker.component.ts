@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder,ReactiveFormsModule, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class DatePickerComponent implements OnInit {
 
   userForm!: FormGroup;
 
-  constructor(public formBuilder: FormBuilder, private http: HttpClient ) { }
+  constructor(public formBuilder: FormBuilder, private http: HttpClient,
+    private router: Router ) { }
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -22,7 +24,14 @@ export class DatePickerComponent implements OnInit {
  // convenience getter for easy access to form fields
  get f() { return this.userForm.controls; }
 submit() {
-
+  {
+    console.log(this.userForm.value);
+    this.http.post('http://localhost:3000/date', this.userForm.value)
+      .subscribe((res: any) => {
+        console.log(res.message);
+this.router.navigate(['home/service/provider-list/register/date/payment'])
+      })
+    }
 }
 
 }

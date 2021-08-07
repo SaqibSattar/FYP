@@ -1,8 +1,9 @@
 <div class="container">
-  <h2 class="mt-5 text-center">Schedule your Appointment</h2>
+
+  <h3><span>Schedule Your Appointment</span></h3>
   <div class="row">
-    <div class="col col-lg-2"></div>
-    <div class="col col-lg-8  marginTop">
+    <div class="col col-lg-4"></div>
+    <div class="col col-lg-4  marginTop">
       <form [formGroup]="userForm" (ngSubmit)="submit()" novalidate>
 
         <div class="form-group">
@@ -15,11 +16,12 @@
         </div>
       </form>
     </div>
+    <div class="col col-lg-4"></div>
   </div>
   <div class="row">
     <div class="col col-lg-4 text-center"></div>
     <div class="col col-lg-4 text-center">
-      <input type="button" value="Next" type="submit"
+      <input type="button" (click)="submit()" value="Next" type="submit"
       class="inputStyle" [disabled]="!userForm.valid">
     </div>
     <div class="col col-lg-4 text-center"></div>

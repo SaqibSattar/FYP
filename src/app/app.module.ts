@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentComponent } from './payment/payment.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ServiceProviderListComponent,
     AddImageComponent,
     UserRegistrationComponent,
-    DatePickerComponent
+    DatePickerComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

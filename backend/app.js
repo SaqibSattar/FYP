@@ -1,11 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcryptjs = require('bcryptjs');
-const path = require("path");  
+const path = require("path");
 
 const City = require("./models/cities");
 const Service = require("./models/service");
 const User = require("./models/user");
+const Date = require('./models/date')
 
 const multer = require("multer");
 
@@ -157,5 +158,35 @@ app.post("/add/user", (req, res, next) => {
   })
 
 })
+
+
+
+
+app.post("/date", (req, res, next) => {
+  const date = new Date({
+    date: req.body.date
+  });
+  date
+    .save()
+    .then(createdservice => {
+      console.log(createdservice)
+      res.status(201).json({
+        message: "Date added successfully",
+      });
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: "Creating a date failed!"
+      });
+    });
+});
+
+
+
+
+
+
+
+
 
 module.exports = app;
