@@ -10,8 +10,8 @@ import { FormGroup, FormBuilder,ReactiveFormsModule, Validators } from "@angular
 export class AddImageComponent implements OnInit {
 
   userForm!: FormGroup;
-  imageSrc: string = ''
-
+  imageSrc: string = '';
+  imageUrl: string = ''
   constructor(public formBuilder: FormBuilder, private http: HttpClient ) { }
 
   ngOnInit(): void {
@@ -55,7 +55,6 @@ export class AddImageComponent implements OnInit {
     console.log(this.userForm.value);
     this.http.post('http://localhost:3000/add', this.userForm.value)
       .subscribe((res: any) => {
-        console.log(res);
         alert('Uploaded Successfully.');
       })
 }

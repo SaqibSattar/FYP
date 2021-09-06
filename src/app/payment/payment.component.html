@@ -7,7 +7,11 @@
     <div class="col col-lg-6 text-center">
       <input type="button" value="Choose Your Payment Method" type="submit" (click)="pay()"
       class="inputStyle">
+      <input type="button" value="Next" [disabled]="isDisabled"  type="submit" (click)="load()"
+      class="inputStyle2">
     </div>
-    <div class="col col-lg-4 text-center"></div>
+    <div class="col col-lg-4 text-center">
+
+    </div>
   </div>
 </div>

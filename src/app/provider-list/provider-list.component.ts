@@ -28,7 +28,6 @@ export class ProviderListComponent implements OnInit {
   loadProvider() {
   return this.service.getProvider().subscribe((data: any) => {
     this.provider = data.Service
-    console.log(this.provider);
 
 
   });

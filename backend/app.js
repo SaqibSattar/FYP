@@ -2,11 +2,13 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcryptjs = require('bcryptjs');
 const path = require("path");
+const jwt = require("jsonwebtoken")
 
 const City = require("./models/cities");
 const Service = require("./models/service");
 const User = require("./models/user");
-const Date = require('./models/date')
+const Date = require('./models/date');
+const checkAuth = require('../backend/middleware/checkAuth');
 
 const multer = require("multer");
 
@@ -32,7 +34,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -55,7 +57,7 @@ const diskStorage = multer.diskStorage({
     if(isValid){
       error = null;
     }
-    cb(error, "/backend/images");
+    cb(error, "backend/images");
   },
   filename: (req, file, cb) => {
     const fileName = file.originalname.toLowerCase().split(' ').join('_');
@@ -75,7 +77,7 @@ app.post("/add", storage, (req, res, next) => {
     email: req.body.email,
     phone: req.body.phone,
     service: req.body.service,
-    image: url + "/images"+req.body.image,
+    image: url + req.body.image,
     city: req.body.city,
     experience: req.body.experience
   });
@@ -161,8 +163,54 @@ app.post("/add/user", (req, res, next) => {
 
 
 
+app.post("/login", (req, res, next) => {
+  User.find({email: req.body.email})
+  .exec()
+  .then(user => {
+    if (user.length < 1){
+      return res.status(401).json({
+        Error: 'Auth Failed.'
 
-app.post("/date", (req, res, next) => {
+      });
+    }
+    bcryptjs.compare(req.body.password, user[0].password, (err, result) => {
+      if (err){
+        return res.status(401).json({
+          Error: 'Auth Failed.'
+        });
+      }
+      if (result) {
+        var JWT_KEY = 'secret';
+        var token = jwt.sign({
+          email: user[0].email,
+          userId: user[0]._id
+        },
+        JWT_KEY,
+        {
+          expiresIn: '1h'
+        }
+      );
+        return res.status(200).json({
+          Message: 'Auth Successful.',
+          token: token
+        });
+      }
+      res.status(401).json({
+        Error: 'Auth Failed.'
+      });
+    });
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err
+    });
+  })
+});
+
+
+
+app.post("/date",checkAuth, (req, res, next) => {
   const date = new Date({
     date: req.body.date
   });
@@ -180,11 +228,6 @@ app.post("/date", (req, res, next) => {
       });
     });
 });
-
-
-
-
-
 
 
 

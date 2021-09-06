@@ -1,5 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthServiceService } from "../auth-service.service";
 
 @Component({
   selector: 'app-header',
@@ -11,7 +14,8 @@ export class HeaderComponent implements OnInit {
   showModal: boolean | undefined;
   registerForm!: FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private auth: AuthServiceService,
+   private router: Router) { }
   show()
   {
     this.showModal = true; // Show-Hide Modal Check
@@ -36,10 +40,13 @@ onSubmit() {
     if (this.registerForm.invalid) {
         return;
     }
-    if(this.submitted)
-    {
-      this.showModal = false;
-    }
 
 }
+userLogin()
+  {
+
+   this.auth.Login(this.registerForm.value);
+   this.showModal = false;
+   this.router.navigate(['home/service/provider-list/register/date']);
+  }
 }

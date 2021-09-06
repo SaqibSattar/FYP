@@ -16,7 +16,6 @@ constructor(private route: ActivatedRoute, private router: Router) { }
 
 selectService(data: string) {
 this.service = data;
-console.log(this.service);
 this.router.navigate(['home/service/provider-list'])
 }
 

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,11 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { DatePickerComponent } from './date-picker/date-picker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentComponent } from './payment/payment.component';
+import { AuthInterceptor } from './auth-interceptor';
+import { HhComponent } from './hh/hh.component';
+import { ThankYouComponent } from './thank-you/thank-you.component';
+import { ZzComponent } from './zz/zz.component';
+import { AbComponent } from './ab/ab.component';
 
 
 @NgModule({
@@ -31,7 +36,12 @@ import { PaymentComponent } from './payment/payment.component';
     AddImageComponent,
     UserRegistrationComponent,
     DatePickerComponent,
-    PaymentComponent
+    PaymentComponent,
+    HhComponent,
+    ThankYouComponent,
+    ZzComponent,
+    AbComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -42,7 +52,9 @@ import { PaymentComponent } from './payment/payment.component';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

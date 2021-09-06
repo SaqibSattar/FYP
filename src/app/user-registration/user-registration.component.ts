@@ -51,10 +51,8 @@ export class UserRegistrationComponent implements OnInit {
   get f() { return this.userForm.controls; }
 
   submit(){
-    console.log(this.userForm.value);
     this.http.post('http://localhost:3000/add/user', this.userForm.value)
       .subscribe((res: any) => {
-        console.log(res.Message);
 this.router.navigate(['home/service/provider-list/register/date'])
       })
     }

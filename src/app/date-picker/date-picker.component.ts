@@ -25,13 +25,10 @@ export class DatePickerComponent implements OnInit {
  get f() { return this.userForm.controls; }
 submit() {
   {
-    console.log(this.userForm.value);
     this.http.post('http://localhost:3000/date', this.userForm.value)
       .subscribe((res: any) => {
-        console.log(res.message);
 this.router.navigate(['home/service/provider-list/register/date/payment'])
       })
     }
 }
-
 }

@@ -30,11 +30,12 @@ export class CitiesComponent implements OnInit {
 loadCities() {
   return this.service.getCities().subscribe((data: any) => {
     this.City = data.cities
+
   })
 }
 addToList(data: any) {
 this.storeCity = data.city
-console.log(this.storeCity)
+
 //console.log(data._id)
 //this.router.navigate(['service'])
 this.router.navigate(['service'],{relativeTo:this.route});
